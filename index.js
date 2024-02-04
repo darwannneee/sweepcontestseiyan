@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 app.get('/api/sales', async (req, res) => {
     try {
-        const response = await fetch('https://api.prod.pallet.exchange/api/v1/marketplace/activities?chain_id=pacific-1&nft_address=sei1za9z9l8pwueataj5gx7mwt8g5zrndhjls7yr6tnhan0zlgw2r8fszn5089&page=1&page_size=500000');
+        const response = await fetch('https://api.prod.pallet.exchange/api/v1/marketplace/activities?chain_id=pacific-1&event_type=sale&nft_address=sei1za9z9l8pwueataj5gx7mwt8g5zrndhjls7yr6tnhan0zlgw2r8fszn5089&page=1&page_size=50');
         const result = await response.json();
         const data = result.activities;
 
