@@ -48,11 +48,12 @@ app.get('/api/address', async (req, res) => {
         // Filter and extract specific fields
         const filteredData = data
             .filter(seiyans => seiyans.block > 55647474 && seiyans.event_type === "sale")
-            .map(({ buyer, price_value, ts, token }) => ({
+            .map(({ buyer, price_value, ts, token, block }) => ({
                 buyer,
+                token_name: token.name,
                 price_value,
                 ts,
-                token_name: token.name
+                block
             }));
 
         res.json(filteredData);
