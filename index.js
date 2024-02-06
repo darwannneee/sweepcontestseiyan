@@ -10,7 +10,7 @@ app.get('/api/sales', async (req, res) => {
         const result = await response.json();
         const data = result.activities;
 
-        const block = data.filter(seiyans => seiyans.block > 55647474 && seiyans < 59,717,348);
+        const block = data.filter(seiyans => seiyans.block > 55647474 && seiyans < 59717348);
         const sale = block.filter(aa => aa.event_type === "sale");
 
         const buyerCounts = sale.reduce((acc, item) => {
@@ -47,7 +47,7 @@ app.get('/api/address', async (req, res) => {
 
         // Filter and extract specific fields
         const filteredData = data
-            .filter(seiyans => seiyans.block > 55647474 && seiyans < 59,717,348 && seiyans.event_type === "sale")
+            .filter(seiyans => seiyans.block > 55647474 && seiyans < 59717348 && seiyans.event_type === "sale")
             .map(({ buyer, price_value, ts, token, block }) => ({
                 buyer,
                 token_name: token.name,
